@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend for chatApp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "giftofgrub",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^7.1.2"
+  }
+}
