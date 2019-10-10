@@ -1,13 +1,6 @@
-const WebSocket = require('ws');
+const app = require("./app");
+const PORT = 3030
 
-const wss = new WebSocket.Server({ port: 3030 });
-
-wss.on('connection', function connection(ws) {
-  ws.on('message', function incoming(data) {
-    wss.clients.forEach(function each(client) {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
-        client.send(data);
-      }
-    });
-  });
+app.listen(PORT, function () {
+  console.log(`server started on port ${PORT}`);
 });

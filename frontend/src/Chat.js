@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import ChatInput from './ChatInput'
 import ChatMessage from './ChatMessage'
 
-const URL = 'ws://localhost:3030';
+const urlParts = document.URL.split("/room/");
+const roomName = urlParts[urlParts.length - 1];
+const URL = `ws://localhost:3030/room/${roomName}`;
 
 class Chat extends Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class Chat extends Component {
   componentDidMount() {
     this.ws.onopen = () => {
       // on connecting, do nothing but log it to the console
-      console.log('connected')
+      console.log(`connected to room ${roomName}`)
     }
 
     this.ws.onmessage = evt => {
